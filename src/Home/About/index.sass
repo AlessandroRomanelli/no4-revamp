@@ -1,0 +1,56 @@
+@import "../../variables"
+
+.container
+  position: relative
+  display: grid
+  min-height: 200vh
+  color: $dark
+  grid-template-columns: 1fr $L-width 1fr
+  z-index: 100
+  background: $white
+
+.about
+  position: relative
+  margin-top: 1em
+  display: flex
+  align-items: center
+  flex-direction: column
+  text-align: center
+  grid-column: 2 / 3
+  .highlight
+    margin-top: 1em
+    display: flex
+    align-items: center
+    justify-content: center
+    & > *
+      margin: 0 0.5rem
+  h1
+    margin: 0
+    font-family: "Baroneys", serif
+    font-size: 4rem
+    font-weight: normal
+    &:nth-of-type(2)
+      color: $commando-red
+  .spacer
+    height: 7px
+    width: 7px
+    background: $commando-red
+    border-radius: 50%
+    border: 1px solid darken($commando-red, 10%)
+
+  .description
+    font-size: 1.2rem
+
+  hr
+    width: 100%
+    height: 2px
+    background: $dark
+
+.ripper
+  padding-top: 1rem
+  position: absolute
+  bottom: calc(100% - 30px)
+  width: 100%
+  filter: drop-shadow(0 -5px 3px transparentize($dark, 0.6))
+  img
+    width: 100%

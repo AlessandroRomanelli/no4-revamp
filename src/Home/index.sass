@@ -1,0 +1,36 @@
+@import "../variables"
+
+.home
+  display: grid
+  box-shadow: 0 0 5px 5px transparentize($dark, 0.5)
+  grid-template-rows: 70vh 1fr
+  @media screen and (min-width: $XL-width)
+   grid-template-rows: 90vh 1fr
+  z-index: 10
+
+.header
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  pointer-events: none
+  overflow: hidden
+  z-index: 10
+
+.title
+  display: flex
+  z-index: 1
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  filter: drop-shadow(0 0 2px $dark)
+  margin-top: 80px
+  .subtitle
+    display: none
+    color: $white
+    text-transform: uppercase
+    font-size: 2rem
+    font-family: "FuturaPT", serif
+    letter-spacing: 3px
+  img
+    max-width: 800px
