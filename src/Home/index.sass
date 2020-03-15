@@ -1,11 +1,7 @@
 @import "../variables"
 
 .home
-  display: grid
   box-shadow: 0 0 5px 5px transparentize($dark, 0.5)
-  grid-template-rows: 70vh 1fr
-  @media screen and (min-width: $XL-width)
-   grid-template-rows: 90vh 1fr
   z-index: 10
 
 .header
@@ -16,6 +12,11 @@
   pointer-events: none
   overflow: hidden
   z-index: 10
+  min-height: 70vh
+  @media screen and (min-width: $XL-width)
+    min-height: 90vh
+  @media screen and (min-width: 2048px)
+    min-height: 100vh
 
 .title
   display: flex

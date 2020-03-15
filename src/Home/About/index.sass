@@ -3,15 +3,14 @@
 .container
   position: relative
   display: grid
-  min-height: 200vh
   color: $dark
   grid-template-columns: 1fr $L-width 1fr
   z-index: 100
   background: $white
 
-.about
+.about, .join
   position: relative
-  margin-top: 1em
+  padding: 1rem 0 2rem
   display: flex
   align-items: center
   flex-direction: column
@@ -51,6 +50,13 @@
   position: absolute
   bottom: calc(100% - 30px)
   width: 100%
-  filter: drop-shadow(0 -5px 3px transparentize($dark, 0.6))
+  filter: contrast(2) drop-shadow(0 -6px 3px transparentize($dark, 0.6))
   img
     width: 100%
+  &.flipped
+    padding-bottom: 1rem
+    padding-top: 0
+    top: calc(100% - 1px)
+    filter: contrast(2) drop-shadow(0 6px 3px transparentize($dark, 0.6))
+    img
+      transform: rotate(0.5turn)

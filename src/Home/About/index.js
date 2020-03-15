@@ -2,18 +2,11 @@ import React from "react";
 import "./index.sass"
 
 import Trailer from "./Trailer"
-
-import Paper from "../../imgs/ripped_paper1.png"
-
-function RippedPaper() {
-    return <div className={"ripper"}>
-        <img src={Paper} alt={"ripped paper"}/>
-    </div>
-}
+import RippedPaperTransition from "../../RippedPaperTransition"
 
 export default function About() {
     return <div className={"container"}>
-        <RippedPaper/>
+        <RippedPaperTransition type={0}/>
         <div className={"about"}>
             <div className={"highlight"}>
                 <h1>Unique</h1>
@@ -31,5 +24,6 @@ export default function About() {
             <Trailer/>
             <hr/>
         </div>
+        <RippedPaperTransition type={1} flipped={true}/>
     </div>;
 }
