@@ -1,5 +1,7 @@
 @import "../../variables"
 
+$warning-color: mix($dark, $white, 75%)
+
 .join .highlight h1 span
   color: $commando-red
 
@@ -13,14 +15,15 @@
 
 .schedule .week
   display: flex
+  justify-content: center
   margin: 1rem
   text-transform: uppercase
   font-size: 1.25em
   .day
     position: relative
     padding: 0.25rem 1rem
-    border: 1px solid darken($light, 25%)
-    color: darken($light, 25%)
+    border: 1px solid $warning-color
+    color: $warning-color
     background: $light
     &.main, &.side
       background: $commando-red
@@ -68,7 +71,6 @@
     font-family: Baroneys, serif
     line-height: 4rem
 
-$warning-color: mix($dark, $white, 75%)
 .disclaimer
   font-size: 0.9em
   padding: 0.25rem 0.5rem
@@ -105,6 +107,7 @@ $warning-color: mix($dark, $white, 75%)
       align-items: flex-end
       justify-content: center
       h2
+        line-height: 2rem
         font-family: Baroneys, serif
         font-size: 3rem
         font-weight: normal

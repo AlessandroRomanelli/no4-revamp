@@ -15,10 +15,10 @@ function Requirement({ title, icon, desc }) {
 
 export default function Requirements() {
     return <div className={"requirements"}>
-        <Requirement title={"Minimum Age"} icon={Icon18} desc={"You must be at least 18 years old, anyone younger will undergo a probation period of a few weeks time"}/>
+        <Requirement title={"Minimum Age"} icon={Icon18} desc={"You must be at least 18 years old, anyone younger will undergo a probation period"}/>
         <div className={"separator"}/>
-        <Requirement title={"Attendance"} icon={IconCalendar} desc={"You should be able to guarantee your presence for at least two operations per week in a normal situation"}/>
+        <Requirement title={"Attendance"} icon={IconCalendar} desc={"You should be able to guarantee your dedication to the unit by attending regularly to our operations"}/>
         <div className={"separator"}/>
-        <Requirement title={"Exclusivity"} icon={IconExclusive} desc={"We do not allow you to be a member of other units whilst being a commando and attending our operations"}/>
+        <Requirement title={"Professionalism"} icon={IconExclusive} desc={"We expect you to conduct yourself in respectful manner at all times whilst representing our unit"}/>
     </div>;
 }

@@ -7,7 +7,10 @@ export default function Trailer() {
             videoId={"ORIHGY-uucY"}
             opts={{
                 width: 1024,
-                height: 576
+                height: 576,
+                playerVars: {
+                    autoplay: 0
+                }
             }}
         />
     </div>;

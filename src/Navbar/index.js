@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 
 export default function MenuAppBar() {
     return (
-        <div className={"navbar"}>
+        <div className={"my-navbar"}>
             <Logo/>
             <Navigation/>
         </div>
@@ -35,7 +35,7 @@ function Navigation() {
             }
         </div>
         <div className={"nav-container"}>
-            <NavLink exact to={"/sign-up"}><span>Sign up</span></NavLink>
+            <NavLink exact to={"/sign-up"}><span>Join</span></NavLink>
         </div>
 
     </div>

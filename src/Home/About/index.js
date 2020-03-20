@@ -4,8 +4,9 @@ import "./index.sass"
 import Trailer from "./Trailer"
 import RippedPaperTransition from "../../RippedPaperTransition"
 
+
 export default function About() {
-    return <div className={"container"}>
+    return <div className={"my-container"}>
         <RippedPaperTransition type={0}/>
         <div className={"about"}>
             <div className={"highlight triplet"}>
@@ -22,10 +23,6 @@ export default function About() {
             </p>
             <hr/>
             <Trailer/>
-            <hr/>
-            <div className={"call-to-action"}>
-                <button>Learn more</button>
-            </div>
         </div>
         <RippedPaperTransition type={1} flipped={true}/>
     </div>;

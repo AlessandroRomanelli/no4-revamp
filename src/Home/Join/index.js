@@ -6,8 +6,10 @@ import Schedule from "./Schedule"
 
 import RippedPaperTransition from "../../RippedPaperTransition"
 
+import ApplicationForm from "./ApplicationForm"
+
 export default function Join() {
-    return <div className={"container"}>
+    return <div id={"join"} className={"my-container"}>
         <RippedPaperTransition type={0}/>
         <div className={"join"}>
             <div className={"highlight"}>
@@ -22,6 +24,7 @@ export default function Join() {
             </p>
             <Requirements/>
             <Schedule/>
+            <ApplicationForm/>
         </div>
         <RippedPaperTransition type={1} flipped={true}/>
     </div>;
