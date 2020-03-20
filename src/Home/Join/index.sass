@@ -10,3 +10,65 @@
   .subtitle
     margin: 0
     font-size: 0.8rem
+
+.schedule .week
+  display: flex
+  margin: 1rem
+  text-transform: uppercase
+  font-size: 1.25em
+  .day
+    position: relative
+    padding: 0.25rem 1rem
+    border: 1px solid darken($light, 25%)
+    color: darken($light, 25%)
+    background: $light
+    &.main, &.side
+      background: $commando-red
+      color: darken($commando-red, 25%)
+      border-color: darken($commando-red, 10%)
+      font-weight: bolder
+    &:not(:last-of-type)
+      border-right: 0
+    &:first-of-type
+      border-radius: 5px 0 0 5px
+    &:last-of-type
+      border-radius: 0 5px 5px 0
+    .today
+      position: absolute
+      bottom: 100%
+      color: $dark
+      font-size: 0.75rem
+      font-weight: bolder
+      left: 50%
+      transform: translateX(-50%)
+.schedule
+  .countdown
+    margin: 1rem 0
+  .time-left span
+    margin: 0 0.1rem
+.times
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 1rem 0
+  .separator
+    font-size: 2rem
+    margin: 1rem 2rem
+
+
+  .time
+    display: flex
+    flex-direction: column
+    font-size: 7.5rem
+    font-family: Baroneys, serif
+    line-height: 4rem
+
+$warning-color: mix($dark, $white, 75%)
+.disclaimer
+  font-size: 0.9em
+  padding: 0.25rem 0.5rem
+  background: transparentize($dark, 0.9)
+  border-radius: 3px
+  color: $warning-color
+  border: 1px solid $warning-color
+

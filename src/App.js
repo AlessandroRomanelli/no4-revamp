@@ -2,6 +2,7 @@ import React from 'react';
 import './App.sass';
 import AppRouter from "./Router";
 import Song from "./audio/we_ll_meet_again.mp3"
+import VideoBackground from "./VideoBackground";
 
 function MusicBackground() {
     const turnDownVolume = (target) => {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="app">
         <MusicBackground/>
+        <VideoBackground/>
         <AppRouter/>
     </div>
   );

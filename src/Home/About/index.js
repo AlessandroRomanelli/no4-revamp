@@ -8,7 +8,7 @@ export default function About() {
     return <div className={"container"}>
         <RippedPaperTransition type={0}/>
         <div className={"about"}>
-            <div className={"highlight"}>
+            <div className={"highlight triplet"}>
                 <h1>Unique</h1>
                 <span className={"spacer"}/>
                 <h1>Immersive</h1>
@@ -23,6 +23,9 @@ export default function About() {
             <hr/>
             <Trailer/>
             <hr/>
+            <div className={"call-to-action"}>
+                <button>Learn more</button>
+            </div>
         </div>
         <RippedPaperTransition type={1} flipped={true}/>
     </div>;

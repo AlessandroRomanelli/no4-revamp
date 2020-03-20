@@ -28,7 +28,7 @@
     font-family: "Baroneys", serif
     font-size: 4rem
     font-weight: normal
-    &:nth-of-type(2)
+  .triplet h1:nth-of-type(2)
       color: $commando-red
   .spacer
     height: 7px
@@ -60,3 +60,22 @@
     filter: contrast(2) drop-shadow(0 6px 3px transparentize($dark, 0.6))
     img
       transform: rotate(0.5turn)
+
+.call-to-action
+  margin: 1rem
+  display: flex
+  flex-direction: column
+  button
+    padding: 0.5rem 2rem
+    font-family: Baroneys, serif
+    background: $commando-red
+    color: $white
+    font-size: 2.5rem
+    border-radius: 2px
+    border: 1px solid darken($commando-red, 10%)
+    outline: 0
+    transition: $default-transition
+    &:hover
+      background: darken($commando-red, 10%)
+      transform: scale(1.05)
+      cursor: pointer

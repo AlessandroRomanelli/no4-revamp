@@ -22,7 +22,7 @@ export default function VideoBackground() {
         if (video.current == null) {
             return;
         }
-        const headerHeight = document.getElementById("header").clientHeight;
+        const headerHeight = document.getElementById("video-bg").clientHeight;
         if (window.scrollY > headerHeight) {
             if (video.current.volume === 0) {
                 return;
@@ -47,7 +47,7 @@ export default function VideoBackground() {
     };
 
     return (
-        <div className={"video-background"}>
+        <div id={"video-bg"} className={"video-background"}>
             <video ref={video} autoPlay={"autoPlay"} loop={"loop"} onCanPlay={handleLoad}>
                 <source src={videoSourceWebm} type={"video/webm"}/>
                 <source src={videoSourceMp4} type={"video/mp4"}/>
