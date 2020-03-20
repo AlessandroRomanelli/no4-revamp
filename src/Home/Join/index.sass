@@ -43,7 +43,12 @@
       transform: translateX(-50%)
 .schedule
   .countdown
+    display: flex
+    flex-direction: column
     margin: 1rem 0
+    span.ongoing
+      font-weight: bold
+      color: $commando-red
   .time-left span
     margin: 0 0.1rem
 .times
@@ -72,3 +77,43 @@ $warning-color: mix($dark, $white, 75%)
   color: $warning-color
   border: 1px solid $warning-color
 
+.details
+  margin-top: 2rem
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+  & > div:first-of-type
+    margin-right: 2rem
+  .day
+    margin: 0.25rem 0
+    padding: 0 0.25rem
+    display: flex
+    transition: $default-transition
+    border-radius: 5px
+    &:hover
+      cursor: default
+      background: $light
+    p
+      text-align: left
+    & > div
+      margin: 0 0.5rem
+    & > div:first-of-type
+      flex-basis: 150px
+      flex-shrink: 0
+      display: flex
+      flex-direction: column
+      align-items: flex-end
+      justify-content: center
+      h2
+        font-family: Baroneys, serif
+        font-size: 3rem
+        font-weight: normal
+        color: $commando-red
+        margin: 0
+      span
+        text-transform: uppercase
+        font-size: 0.8em
+        letter-spacing: 1px
+
+.op-days h1
+  margin-bottom: 0.5rem

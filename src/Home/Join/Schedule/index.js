@@ -43,6 +43,11 @@ function getNextEvent() {
     return nextEvent
 }
 
+function isOperationOngoing() {
+    const today = new Date();
+    return opDays.includes(today.getDay()) && today.getUTCHours() >= 19 && today.getUTCHours() <= 22
+}
+
 export default function Schedule() {
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const today = new Date();
@@ -57,17 +62,46 @@ export default function Schedule() {
             {week.map((x,i) => <Day day={x} idx={i} key={i}/>)}
         </div>
         <div className={"countdown"}>
-            Time left to next operation: {<Countdown date={getNextEvent()} renderer={TimeLeft}/> }
+            <span>Time left to next operation: {<Countdown date={getNextEvent()} renderer={TimeLeft}/>}</span>
+            { isOperationOngoing() && <span className={"ongoing"}>An operation is currently taking place!</span> }
         </div>
-        <h1>Operation Times</h1>
-        <div className={"times"}>
-            <Time hour={"19:30"}/>
-            <div className={"separator"}>
-                <FontAwesomeIcon icon={faLongArrowAltRight} color={"#b40f0f"} size={"lg"}/>
+        <div className={"details"}>
+            <div className={"op-hours"}>
+                <h1>When do we play</h1>
+                <div className={"times"}>
+                    <Time hour={"19:30"}/>
+                    <div className={"separator"}>
+                        <FontAwesomeIcon icon={faLongArrowAltRight} color={"#b40f0f"} size={"lg"}/>
+                    </div>
+                    <Time hour={"22:00"}/>
+                </div>
+                <span className={"disclaimer"}>All times displayed are expressed in current British Time</span>
             </div>
-            <Time hour={"22:00"}/>
+            <div className={"op-days"}>
+                <h1>On which days?</h1>
+                <div className={"days"}>
+                    <div className={"day"}>
+                        <div>
+                            <h2>Wednesday</h2>
+                            <span>Side Operation</span>
+                        </div>
+                        <div>
+                            <p>On this day we have operations on smaller scales and that are least impact on the ongoing campaign.</p>
+                        </div>
+                    </div>
+                    <div className={"day"}>
+                        <div>
+                            <h2>Saturday</h2>
+                            <span>Main Operation</span>
+                        </div>
+                        <div>
+                            <p> The main operation is pivotal to our activities: the most important missions are played and honors are awarded at the end of the mission.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span className={"disclaimer"}>All times displayed are expressed in current British Time</span>
+
 
     </div>;
 }
