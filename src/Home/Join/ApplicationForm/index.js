@@ -11,7 +11,12 @@ export default function ApplicationForm() {
     const openModal = () => setShow(true);
     const closeModal = () => setShow(false);
 
+    return <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"} target={"_blank"}>
+        <Button className={"application-btn"}>Apply for membership</Button>
+    </a>
+    /*
     return <>
+
         <Button className={"application-btn"} onClick={openModal}>Apply for membership</Button>
 
         <Modal id={"application-modal"} show={show} onHide={closeModal}>
@@ -76,4 +81,5 @@ export default function ApplicationForm() {
             </Modal.Footer>
         </Modal>
     </>;
+    */
 }

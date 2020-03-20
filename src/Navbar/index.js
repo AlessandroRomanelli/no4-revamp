@@ -35,7 +35,7 @@ function Navigation() {
             }
         </div>
         <div className={"nav-container"}>
-            <NavLink exact to={"/sign-up"}><span>Join</span></NavLink>
+            <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"} target={"_blank"}><span>Join</span></a>
         </div>
 
     </div>
