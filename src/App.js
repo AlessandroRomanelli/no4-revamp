@@ -16,9 +16,11 @@ function MusicBackground() {
 
     const handlePlay = (e) => {
         e.persist();
-        e.target.play();
         e.target.volume = 0.05;
-        setTimeout(() => turnDownVolume(e.target), 100);
+        setTimeout(() => {
+            e.target.play();
+            turnDownVolume(e.target)
+        }, 500);
     };
 
     return <audio autoPlay onCanPlay={handlePlay}>

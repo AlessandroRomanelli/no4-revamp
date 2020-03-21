@@ -16,6 +16,9 @@ export default function VideoBackground() {
             window.removeEventListener('scroll', changeVolume);
         }
         window.addEventListener('scroll', changeVolume);
+        setTimeout(() => {
+            video.current.play();
+        }, 500);
     }, []);
 
     const changeVolume  = () => {
@@ -42,7 +45,6 @@ export default function VideoBackground() {
     };
 
     const handleLoad = (e) => {
-        e.target.play();
         e.target.volume = maxVol;
         changeVolume();
     };
