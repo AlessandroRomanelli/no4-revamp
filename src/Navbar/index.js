@@ -35,7 +35,7 @@ function Navigation() {
             }
         </div>
         <div className={"nav-container"}>
-            <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"} target={"_blank"}><span>Join</span></a>
+            <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"}  rel="noopener noreferrer" target={"_blank"}><span>Join</span></a>
         </div>
 
     </div>

@@ -11,7 +11,7 @@ export default function ApplicationForm() {
     const openModal = () => setShow(true);
     const closeModal = () => setShow(false);
 
-    return <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"} target={"_blank"}>
+    return <a href={"https://docs.google.com/forms/d/e/1FAIpQLSdAMOApJEhmTQcAlbSisXxxYgUhoFptmRB36dpxmefXGTNNAA/viewform"}  rel="noopener noreferrer" target={"_blank"}>
         <Button className={"application-btn"}>Apply for membership</Button>
     </a>
     /*

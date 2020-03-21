@@ -1,6 +1,18 @@
 @import "../variables"
 
 .not-found
+  z-index: 1
   margin-top: $navbar-height
-  height: 33vh
-  background: $white
+  height: calc(100vh - 80px)
+  display: flex
+  justify-content: center
+  align-items: center
+  background: transparentize($dark, 0.5)
+  color: $white
+  flex-direction: column
+
+  h1
+    margin: 0
+    line-height: 7rem
+    font-family: Baroneys, serif
+    font-size: 9rem
