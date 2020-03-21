@@ -37,12 +37,10 @@ function getNextEvent() {
     const today = new Date();
     const nextEvent = new Date();
     const countToday = today.getUTCHours() < 19 || (today.getUTCHours() === 19 && today.getUTCMinutes() <= 30);
-    const daysLeft = opDays.map(x => x - today.getDay()).find(x => x >= (countToday ? 0 : 1));
-    console.log(countToday);
-    console.log(daysLeft);
+    const nextDays = opDays.map(x => x - today.getDay()).filter(x => countToday || x > 0);
+    const daysLeft = nextDays.length > 0 ? Math.min.apply(null, nextDays) : 7 + Math.min.apply(null, opDays.map(x => x - today.getDay()));
     nextEvent.setDate(today.getDate() + daysLeft);
     nextEvent.setUTCHours(19, 30);
-    console.log(nextEvent);
     return nextEvent
 }
 
