@@ -42,6 +42,7 @@ export default function VideoBackground() {
     };
 
     const handleLoad = (e) => {
+        e.target.play();
         e.target.volume = maxVol;
         changeVolume();
     };

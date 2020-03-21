@@ -16,6 +16,7 @@ function MusicBackground() {
 
     const handlePlay = (e) => {
         e.persist();
+        e.target.play();
         e.target.volume = 0.05;
         setTimeout(() => turnDownVolume(e.target), 100);
     };
