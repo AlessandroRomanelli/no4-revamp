@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Home"
 import Navbar from "./Navbar"
+import NotFound from "./NotFound"
 
 import {
     BrowserRouter as Router,
@@ -19,7 +20,7 @@ export default function AppRouter() {
             <Navbar/>
             <div className={"main-container"}>
                 <Switch>
-                    <Route path="/donations">
+                    {/*<Route path="/donations">
                         <About />
                     </Route>
                     <Route path="/public">
@@ -27,9 +28,12 @@ export default function AppRouter() {
                     </Route>
                     <Route path="/unit">
                         <Topics />
-                    </Route>
+                    </Route>*/}
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route>
+                        <NotFound/>
                     </Route>
                 </Switch>
             </div>

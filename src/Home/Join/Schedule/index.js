@@ -25,8 +25,8 @@ function Time({ hour }) {
 
 function TimeLeft({ total, days, hours, minutes, seconds, milliseconds, completed }) {
     return !completed ? <span className={"time-left"}>
-        <span>{days} day{(days === 0 || days > 1) && "s"},</span>
-        <span>{hours} hour{(hours === 0 || hours > 1) && "s"} and</span>
+        {days > 0 && <span>{days} day{(days === 0 || days > 1) && "s"},</span>}
+        {hours > 0 && <span>{hours} hour{(hours === 0 || hours > 1) && "s"} and</span>}
         <span>{minutes} minute{(minutes === 0 || minutes > 1) && "s"}</span>
     </span> : <span>Now!</span>;
 }
@@ -36,16 +36,19 @@ const opDays = [3,6];
 function getNextEvent() {
     const today = new Date();
     const nextEvent = new Date();
-    const countToday = today.getUTCHours() <= 19 && today.getUTCMinutes() <= 30;
+    const countToday = today.getUTCHours() < 19 || (today.getUTCHours() === 19 && today.getUTCMinutes() <= 30);
     const daysLeft = opDays.map(x => x - today.getDay()).find(x => x >= (countToday ? 0 : 1));
+    console.log(countToday);
+    console.log(daysLeft);
     nextEvent.setDate(today.getDate() + daysLeft);
     nextEvent.setUTCHours(19, 30);
+    console.log(nextEvent);
     return nextEvent
 }
 
 function isOperationOngoing() {
     const today = new Date();
-    return opDays.includes(today.getDay()) && today.getUTCHours() >= 19 && today.getUTCHours() <= 22
+    return opDays.includes(today.getDay()) && ((today.getUTCHours() === 19 && today.getUTCMinutes() >= 30)  || (today.getUTCHours() > 20 && today.getUTCHours() <= 22))
 }
 
 export default function Schedule() {
