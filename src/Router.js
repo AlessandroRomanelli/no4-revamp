@@ -2,6 +2,8 @@ import React from "react";
 import Home from "./Home"
 import Navbar from "./Navbar"
 import NotFound from "./NotFound"
+import Application from "./Application"
+
 
 import {
     BrowserRouter as Router,
@@ -29,6 +31,9 @@ export default function AppRouter() {
                     <Route path="/unit">
                         <Topics />
                     </Route>*/}
+                    <Route path={"/application"}>
+                        <Application/>
+                    </Route>
                     <Route exact path="/">
                         <Home />
                     </Route>

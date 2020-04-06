@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
@@ -22,6 +22,11 @@ function Time({ hour }) {
     </div>
 }
 
+function isDST(d) {
+    let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
+    let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
+    return Math.max(jan, jul) !== d.getTimezoneOffset();
+}
 
 function TimeLeft({ total, days, hours, minutes, seconds, milliseconds, completed }) {
     return !completed ? <span className={"time-left"}>
@@ -33,20 +38,22 @@ function TimeLeft({ total, days, hours, minutes, seconds, milliseconds, complete
 
 const opDays = [3,6];
 
+const opHour = isDST(new Date()) ? 19 : 18;
+
 function getNextEvent() {
     const today = new Date();
     const nextEvent = new Date();
-    const countToday = today.getUTCHours() < 19 || (today.getUTCHours() === 19 && today.getUTCMinutes() <= 30);
+    const countToday = today.getUTCHours() < opHour || (today.getUTCHours() === opHour && today.getUTCMinutes() <= 30);
     const nextDays = opDays.map(x => x - today.getDay()).filter(x => countToday || x > 0);
     const daysLeft = nextDays.length > 0 ? Math.min.apply(null, nextDays) : 7 + Math.min.apply(null, opDays.map(x => x - today.getDay()));
     nextEvent.setDate(today.getDate() + daysLeft);
-    nextEvent.setUTCHours(19, 30);
+    nextEvent.setUTCHours(opHour, 30);
     return nextEvent
 }
 
 function isOperationOngoing() {
     const today = new Date();
-    return opDays.includes(today.getDay()) && ((today.getUTCHours() === 19 && today.getUTCMinutes() >= 30)  || (today.getUTCHours() > 20 && today.getUTCHours() <= 22))
+    return opDays.includes(today.getDay()) && ((today.getUTCHours() === opHour && today.getUTCMinutes() >= 30)  || (today.getUTCHours() > opHour+1 && today.getUTCHours() <= opHour+3))
 }
 
 export default function Schedule() {

@@ -1,0 +1,52 @@
+@import "../variables"
+
+.application
+  z-index: 50
+
+.application section
+  padding: 1rem 0
+  grid-column: 2 / 3
+
+  div.my-disclaimer
+    font-size: 1.35rem
+    text-align: center
+    padding: 0.5rem 0
+    border: 2px solid $light
+    border-left: none
+    border-right: none
+
+  form
+    margin-top: 1rem
+    .desired-name .input
+      display: flex
+      align-items: center
+      & > *
+        margin-right: 0.25rem
+      & > .form-group:first-of-type
+        flex: 0 1 40px
+        input
+          padding: 0.25rem
+          text-align: center
+    .agreement
+      display: flex
+      align-items: center
+      label
+        margin: 0
+      & > input
+        margin: 0 0.5rem
+        flex: 0 1 1.5rem
+        box-shadow: none
+    .exp-hours
+      display: flex
+      align-items: center
+      & > input
+        margin-right: 0.5rem
+        flex: 0 1 100px
+.heading
+  position: relative
+  color: $white
+  text-align: center
+  padding: 8rem 0.5rem 6rem
+  & > div
+    line-height: 8rem
+    font-family: "Baroneys", serif

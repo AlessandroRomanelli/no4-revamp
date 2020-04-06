@@ -28,7 +28,7 @@
   justify-content: space-between
   & > *
     text-transform: uppercase
-  a:link, a:visited
+  & > .nav-container > a:link, a:visited
     font-size: 1.15rem
     font-weight: 300
     font-family: "Bellota Text", serif
@@ -67,3 +67,39 @@
 .nav-container
   display: flex
   height: 100%
+
+.apply-now
+  position: absolute
+  right: 0
+  top: 100%
+  padding: 0.25rem 1rem
+  font: 1.15rem "Bellota Text", serif
+  background: $commando-red
+  z-index: 10
+  transition: $default-transition
+  a:link, a:visited
+    text-decoration: none
+  &::before
+    z-index: 0
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 31px
+    content: ""
+    transform: translate(-50%,50%)
+    border: 31px solid transparent
+    border-top-color: $commando-red
+    transition: $default-transition
+  &:hover
+    cursor: pointer
+    background: darken($commando-red, 10%)
+    &::before
+      border-top-color: darken($commando-red, 10%)
+  &.submitted
+    &:hover
+      cursor: default
+      background: $commando-red
+      &::before
+        border-top-color: $commando-red
+    &::before
+      z-index: -1

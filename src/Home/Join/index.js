@@ -6,9 +6,13 @@ import Schedule from "./Schedule"
 
 import RippedPaperTransition from "../../RippedPaperTransition"
 
-import ApplicationForm from "./ApplicationForm"
+import {Button} from "react-bootstrap";
+import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export default function Join() {
+    const store = useSelector(state => state);
+
     return <div id={"join"} className={"my-container"}>
         <RippedPaperTransition type={0}/>
         <div className={"join"}>
@@ -24,7 +28,9 @@ export default function Join() {
             </p>
             <Requirements/>
             <Schedule/>
-            <ApplicationForm/>
+            {(store && !store.submitted) ? <NavLink to={"/application"}>
+                <Button className={"application-btn"}>Apply for membership</Button>
+            </NavLink> : <Button disabled className={"application-btn submitted"}>Already applied</Button>}
         </div>
         <RippedPaperTransition type={1} flipped={true}/>
     </div>;
