@@ -1,31 +1,30 @@
 import React from "react";
 
-import axios from "axios";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../utils";
 
 export default function Logout() {
+    const store = useSelector(state => state);
     const dispatch = useDispatch();
 
     const handleLogout = async (e) => {
         e.preventDefault();
-        const { data } = await axios.post("http://localhost:3000/api", {
-            query: `
-            mutation {
-                unauthenticateUser {
-                    success
-                }
+        try {
+            const data = await logout(store.token);
+            console.log(data);
+            if (data.unauthenticateUser.success) {
+                console.log("Successfully logged out");
+                localStorage.removeItem("user");
+                localStorage.removeItem("token");
+                dispatch({
+                    type: "clear_user"
+                })
             }
-            `
-        });
-
-        if (data.data.unauthenticateUser.success) {
-            console.log("Successfully logged out");
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-            dispatch({
-                type: "clear_user"
-            })
+        } catch (e) {
+            console.error(e.response ? e.response : e);
         }
+
+
     };
 
     return <a href={"#"} onClick={handleLogout}>

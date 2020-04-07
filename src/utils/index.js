@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const url = Boolean(window.location.port) && window.location.hostname === "localhost" ? "http://localhost:3000" : window.location.origin;
+
 export async function login(email, password) {
-    const { data: { data: { authenticateUserWithPassword } } } = await axios.post("http://localhost:3000/api", {
+    const { data: { data: { authenticateUserWithPassword } } } = await axios.post(url+"/api", {
         query: `
             mutation($email: String, $password: String) {
                 authenticateUserWithPassword(email: $email, password: $password) {
@@ -20,18 +22,29 @@ export async function login(email, password) {
     return authenticateUserWithPassword.token;
 }
 
+export async function logout(token) {
+    if (!token) return;
+    const { data: { data } } = await axios.post(url+"/api", {
+        query: `
+            mutation {
+                unauthenticateUser {
+                    success
+                }
+            }
+            `
+    });
+    return data
+}
+
 export async function getLoggedUser(token) {
     if (!token) return null;
-    const { data: { data: { authenticatedUser } } } = await axios.post("http://localhost:3000/api", {
+    const { data: { data: { authenticatedUser } } } = await axios.post(url+"/api", {
         query: `
             query {
                 authenticatedUser {
                    id
                    name
                    email
-                   role {
-                        name
-                   }
                    rank {
                         name
                         abbreviation
@@ -60,13 +73,10 @@ export async function getLoggedUser(token) {
 }
 
 export async function sendGraphQLRequest(query, variables, token) {
-    const result = await axios.post("http://localhost:3000/api", {
+    const config = token ? { headers: { Authorization: "Bearer " + token}} : {};
+    const result = await axios.post(url+"/api", {
         query,
         variables
-    }, {
-        headers: {
-            Authorization: "Bearer " + token
-        }
-    });
+    }, config);
     return result.data;
 }

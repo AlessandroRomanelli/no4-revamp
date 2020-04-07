@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Form, Modal} from "react-bootstrap";
 import {getLoggedUser, login} from "../../utils";
 import {useDispatch} from "react-redux";
+import Swal from "sweetalert2";
 
 export default function Login({ failed, setShow, setFailed, setMode }) {
     const [validated, setValidated] = useState(false);
@@ -38,6 +39,13 @@ export default function Login({ failed, setShow, setFailed, setMode }) {
             type: "store_token",
             payload: token
         });
+        await Swal.fire({
+            icon: 'success',
+            title: 'Logged in!',
+            text: Boolean(user.name) ? `Welcome back, ${user.name}` : 'Welcome back',
+            timer: 2000,
+            timerProgressBar: true
+        });
         setShow(false);
     };
 
@@ -54,7 +62,7 @@ export default function Login({ failed, setShow, setFailed, setMode }) {
                 <Form.Control type="password" placeholder="Password" required />
             </Form.Group>
             {failed ? <div className={"feedback"}><small>Invalid login credentials</small></div> : <Form.Text className="text-muted">
-                Don't have an account? <a href={"#"} onClick={() => setMode("register")}>Sign up!</a>
+                Don't have an account? <a href={"#"} onClick={(e) => {e.preventDefault(); setMode("register")}}>Sign up!</a>
             </Form.Text>}
         </Modal.Body>
         <Modal.Footer>

@@ -11,8 +11,6 @@ export default function LoginRegistration({ initialMode }) {
     const [mode, setMode] = useState(initialMode);
     const [failed, setFailed] = useState(false);
 
-    const modal = createRef();
-
     const handleClick = e => {
         e.preventDefault();
         setShow(true);
@@ -22,7 +20,7 @@ export default function LoginRegistration({ initialMode }) {
         <a href={"#"} onClick={handleClick}>
             <span>Login</span>
         </a>
-        <Modal dialogClassName={failed ? "shake" : null} ref={modal} size={"sm"} centered show={show} onHide={() => setShow(false)}>
+        <Modal dialogClassName={failed ? "shake" : null} size={"sm"} centered show={show} onHide={() => setShow(false)}>
             {mode === "login" ?
                 <Login setShow={setShow} setFailed={setFailed} failed={failed} setMode={setMode}/> :
                 <Registration setShow={setShow} setFailed={setFailed} failed={failed} setMode={setMode}/>

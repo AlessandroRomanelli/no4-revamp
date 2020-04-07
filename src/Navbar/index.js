@@ -25,7 +25,7 @@ function Logo() {
 
 
 function Navigation() {
-    const links = ["unit", "structure", "donations"];
+    const links = ["unit", "structure"];
 
     const store = useSelector(state => state);
     const dispatch = useDispatch();
@@ -41,7 +41,7 @@ function Navigation() {
     }, []);
 
     useEffect(() => {
-        if (!store) return;
+        if (!store || !store.user) return;
         (async () => {
             const query = `
             query($userId: ID!) {
@@ -54,13 +54,15 @@ function Navigation() {
                 userId: store.user.id
             };
             try {
-                await sendGraphQLRequest(query, variables, store.token);
-                dispatch({ type: "set_submitted" });
+                const { data } = await sendGraphQLRequest(query, variables, store.token);
+                if (data.allApplications.length > 0) {
+                    dispatch({ type: "set_submitted" });
+                }
             } catch (e) {
                 console.error(e.response ? e.response : e);
             }
         })()
-    }, [store]);
+    }, []);
 
     return <div className={"navigation"}>
         <div className={"nav-container"}>
@@ -73,6 +75,7 @@ function Navigation() {
                     <span>{x}</span>
                 </NavLink>)
             }
+            <a href={"https://paypal.me/no4commandoA3?locale.x=en_GB"} target={"_blank"}>donations</a>
         </div>
         <div className={"nav-container"}>
             {store && store.user ? <Logout/> : <Login initialMode={"login"}/>}

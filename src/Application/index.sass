@@ -16,6 +16,7 @@
     border-right: none
 
   form
+    font-size: 1.25em
     margin-top: 1rem
     .desired-name .input
       display: flex
@@ -23,10 +24,11 @@
       & > *
         margin-right: 0.25rem
       & > .form-group:first-of-type
-        flex: 0 1 40px
+        flex: 0 1 50px
         input
-          padding: 0.25rem
-          text-align: center
+          padding: 0.5rem
+          text-align: left
+          text-transform: uppercase
     .agreement
       display: flex
       align-items: center
@@ -36,6 +38,9 @@
         margin: 0 0.5rem
         flex: 0 1 1.5rem
         box-shadow: none
+      .invalid-feedback
+        margin-left: 1rem
+        flex: 0 1 10rem
     .exp-hours
       display: flex
       align-items: center

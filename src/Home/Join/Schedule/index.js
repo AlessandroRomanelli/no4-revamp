@@ -38,7 +38,7 @@ function TimeLeft({ total, days, hours, minutes, seconds, milliseconds, complete
 
 const opDays = [3,6];
 
-const opHour = isDST(new Date()) ? 19 : 18;
+const opHour = isDST(new Date()) ? 18 : 19;
 
 function getNextEvent() {
     const today = new Date();
